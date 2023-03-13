@@ -2,11 +2,22 @@ import gmsh
 import math
 import os
 import sys
+name = ""
+while True:
+    name = input()
+    if name == "Human":
+        name = 'PI3-108-1.stl'
+        break
+    elif name == "tor":
+        name = 'tor.stl'
+        break
+    else:
+        print("Wrong name file")
 
 gmsh.initialize()
 
 path = os.path.dirname(os.path.abspath(__file__))
-gmsh.merge(os.path.join(path, f'PI3-108-1.stl'))
+gmsh.merge(os.path.join(path, name))
 angle = 5
 forceParametrizablePatches = False
 
